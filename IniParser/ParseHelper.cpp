@@ -48,6 +48,14 @@ BOOL CParseHelper::IsUnicodeText(LPVOID pText)
 	return FALSE;
 }
 
+BOOL CParseHelper::IsUTF8Text(LPVOID pText)
+{
+	unsigned char *pData = (unsigned char*)pText;
+	if ((unsigned char)pData[0] == 0xEF && (unsigned char)pData[1] == 0xBB && (unsigned char)pData[2] == 0xBF)
+		return TRUE;
+	return FALSE;
+}
+
 LPCTSTR CParseHelper::GetNextPart(LPCTSTR lpszString)
 {
 	while(*lpszString != _T(' ') && *lpszString != _T(',') && *lpszString != _T('\0'))

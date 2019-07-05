@@ -1,5 +1,6 @@
 
 #include "ParseIni.h"
+#include "utf8conv.h"
 
 //////////////////////////////////////////////////////////////////////////
 // CIniPartValue
@@ -427,6 +428,12 @@ BOOL CParseIni::LoadFromFile(LPCTSTR lpszFilePathName)
 	if(dwFileSize > 1 && CParseHelper::IsUnicodeText(pData))
 	{
 		bResult = LoadFromString(((LPCTSTR)pData) + 1);
+	}
+	else if (dwFileSize > 2 && CParseHelper::IsUTF8Text(pData))
+	{
+		string utf8txt = (LPCSTR)pData + 3;
+		wstring unicodetxt = win32::Utf8ToUtf16(utf8txt);
+		bResult = LoadFromString(unicodetxt.c_str());
 	}
 	else
 	{

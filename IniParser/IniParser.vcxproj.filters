@@ -27,6 +27,12 @@
     <ClInclude Include="strtod.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="utf8conv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utf8except.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ParseIni.cpp">

@@ -31,6 +31,7 @@ public:
 public:
 	static BOOL IsStringLeadWith(LPCTSTR lpszString, LPCTSTR lpszLead);
 	static BOOL IsUnicodeText(LPVOID pText);
+	static BOOL IsUTF8Text(LPVOID pText);
 
 	//Parse (T)
 	static COLORREF ParseColor(LPCTSTR lpszColor);		//XXX XXX XXX
